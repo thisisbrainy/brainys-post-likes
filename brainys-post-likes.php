@@ -14,6 +14,7 @@ Domain Path: /languages
  */
 
 define('BPL_DIR', __DIR__);
+define('BPL_URL', plugin_dir_url(__FILE__));
 
 session_start();
 
