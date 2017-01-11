@@ -71,3 +71,21 @@ function bpl_like_link() {
 	return $link;
 
 }
+
+function bpl_insert_like_link($content) {
+
+	$content .= bpl_like_link();
+
+	return $content;
+
+}
+
+function bpl_scripts() {
+
+	wp_enqueue_script('brainys-post-likes', BPL_BASE_URL . '/assets/js/bpl.js', ['jquery']);
+	wp_localize_script('brainys-post-likes', 'brainys_post_likes_vars', [
+		'ajaxurl' => admin_url('admin-ajax.php'),
+		'nonce' => wp_create_nonce('brainys-post-likes-nonce')
+	]);
+	
+}
